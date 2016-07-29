@@ -1,11 +1,26 @@
 require 'spec_helper'
 
 describe UsaStates do
+  subject { described_class }
+
   it 'has a version number' do
-    expect(UsaStates::VERSION).not_to be nil
+    expect(described_class::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it 'encapsulate internal hash' do
+    expect { described_class::HASH }.to raise_error(NameError)
+  end
+
+  describe '.codes' do
+    subject { described_class.codes }
+
+    it { is_expected.to be_a(Array) }
+    it { expect(subject.count).to eq 55 }
+
+    it { is_expected.to include('CA') }
+    it { is_expected.to include('NY') }
+
+    it { is_expected.not_to include('AA') }
+    it { is_expected.not_to include('California') }
   end
 end
