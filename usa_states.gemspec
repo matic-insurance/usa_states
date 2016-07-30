@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Simple Hash with all USA States'
   spec.description   = 'Simple Hash, that provides full list of USA states'
+  spec.homepage      = 'https://github.com/matic-insurance/usa_states'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
