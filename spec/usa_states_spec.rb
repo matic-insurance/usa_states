@@ -23,4 +23,14 @@ describe UsaStates do
     it { is_expected.not_to include('AA') }
     it { is_expected.not_to include('California') }
   end
+
+  describe '.all' do
+    subject { described_class.all }
+
+    it { is_expected.to be_a(Hash) }
+    it { expect(subject.count).to eq 55 }
+
+    it { is_expected.to include('CA' => 'California') }
+    it { is_expected.to include('NY' => 'New York') }
+  end
 end
